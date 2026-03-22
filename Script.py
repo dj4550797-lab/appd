@@ -1,5 +1,5 @@
 class script(object):
-    START_TXT = """START_TXT = """<b>✨ 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐅𝐥𝐢𝐱𝐨𝐫𝐚 ✨
+    START_TXT = """<b>✨ 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐅𝐥𝐢𝐱𝐨𝐫𝐚 ✨
 
 🍿 <i>Your Ultimate Cinematic Universe!</i> 🍿
 
