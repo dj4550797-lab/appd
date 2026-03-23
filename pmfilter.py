@@ -1762,9 +1762,9 @@ async def auto_filter(client, msg, spoll=False):
                 message_text = message.text or ""
                 search = message_text.lower()
 
-                stick_id = "CAACAgIAAxkBAAEPhm5o439f8A4sUGO2VcnBFZRRYxAxmQACtCMAAphLKUjeub7NKlvk2TYE"
+                stick_id = "CAACAgIAAxkBAAPDacD1IpH6rj_ivYph6N2o2T43pS4AAvUAA_cCyA9HRphh0VDIsR4E"
                 keyboard = InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(f'🔎 sᴇᴀʀᴄʜɪɴɢ {search}', callback_data="hiding")]]
+                    [[InlineKeyboardButton(f'🔎 Flixora is fetching {search}', callback_data="hiding")]]
                 )
                 try:
                     m = await message.reply_sticker(sticker=stick_id, reply_markup=keyboard)
