@@ -1,4 +1,4 @@
---- START OF FILE __init__.py ---
+--- START OF FILE plugins/__init__.py ---
 
 from aiohttp import web
 from .route import routes
