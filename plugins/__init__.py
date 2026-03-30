@@ -1,11 +1,9 @@
---- START OF FILE plugins/__init__.py ---
-
 from aiohttp import web
 from .route import routes
 from asyncio import sleep 
 from datetime import datetime
 from database.users_chats_db import db
-from info import LOG_CHANNEL, PREMIUM_LOGS, PORT, ON_HEROKU, PING_INTERVAL
+from info import LOG_CHANNEL, URL, PREMIUM_LOGS
 import aiohttp
 import asyncio
 import logging
@@ -38,22 +36,13 @@ async def check_expired_premium(client):
 
 async def keep_alive():
     """Keep bot alive by sending periodic pings."""
-    if ON_HEROKU:
-        # On Heroku, the public URL must be used from the FQDN variable
-        from info import URL
-        ping_url = URL
-    else:
-        # On VPS/local, ping the local server directly
-        ping_url = f"http://127.0.0.1:{PORT}"
-
     async with aiohttp.ClientSession() as session:
         while True:
-            await asyncio.sleep(PING_INTERVAL - 2) # Ping slightly before the interval
+            await asyncio.sleep(298)
             try:
-                async with session.get(ping_url) as resp:
+                async with session.get(URL) as resp:
                     if resp.status != 200:
-                        logging.warning(f"⚠️ Ping to {ping_url} failed! Status: {resp.status}")
-                    else:
-                        logging.info(f"Successfully pinged {ping_url}. Status: {resp.status}")
+                        logging.warning(f"⚠️ Ping Error! Status: {resp.status}")
             except Exception as e:
-                logging.error(f"❌ Ping failed to {ping_url}: {e}")
+                logging.error(f"❌ Ping Failed: {e}")           
+
