@@ -254,7 +254,8 @@ async def _process_with_lock(bot, filename, caption, media_info, base_name, proc
         "episode": media_info["episode"]
     }
 
-    # --- ISKO COPY KAREIN (SAFE CRASH-FREE CODE) ---
+    if not movie_doc:
+        # --- YE SECTION DHAYAN SE REPLACE KAREIN ---
         details = None
         if TMDB_POSTER:
             try:
@@ -271,11 +272,11 @@ async def _process_with_lock(bot, filename, caption, media_info, base_name, proc
                 logger.error(f"IMDb Error: {e}")
                 details = {}
 
-        # Ab details check karein taaki bot crash na ho
         if not details:
             details = {}
 
         raw_genres = details.get("genres", "N/A")
+        # --- REPLACE KHATAM ---
         # ... baaki code waise hi rehne dein
             genres = ", ".join(g for g in raw_genres if g in STANDARD_GENRES) or "N/A"
         movie_doc = {
