@@ -32,7 +32,8 @@ IGNORE_WORDS = {
     "mar", "marathi", "guj", "gujarati", "urd", "urdu", "kor", "korean", "jpn", 
     "japanese", "nf", "netflix", "sonyliv", "sony", "sliv", "amzn", "prime", 
     "primevideo", "hotstar", "zee5", "jio", "jhs", "aha", "hbo", "paramount", 
-    "apple", "hoichoi", "sunnxt", "viki"
+    "apple", "hoichoi", "sunnxt", "viki", "sky", "movies", "tif", "hw", "skymovies", # Ye words add kar dein
+    "rarbg", "dub", "sub",
 }|BAD_WORDS
 
 # Constants
