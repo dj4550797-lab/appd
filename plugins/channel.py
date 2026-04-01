@@ -32,8 +32,7 @@ IGNORE_WORDS = {
     "mar", "marathi", "guj", "gujarati", "urd", "urdu", "kor", "korean", "jpn", 
     "japanese", "nf", "netflix", "sonyliv", "sony", "sliv", "amzn", "prime", 
     "primevideo", "hotstar", "zee5", "jio", "jhs", "aha", "hbo", "paramount", 
-    "apple", "hoichoi", "sunnxt", "viki", "sky", "movies", "tif", "hw", "skymovies", # Ye words add kar dein
-    "rarbg", "dub", "sub",
+    "apple", "hoichoi", "sunnxt", "viki"
 }|BAD_WORDS
 
 # Constants
@@ -255,29 +254,20 @@ async def _process_with_lock(bot, filename, caption, media_info, base_name, proc
     }
 
     if not movie_doc:
-        # --- YE SECTION DHAYAN SE REPLACE KAREIN ---
-        details = None
         if TMDB_POSTER:
-            try:
-                details = await get_movie_detailsx(base_name)
-            except Exception:
-                details = None
-
-        # Agar TMDB fail ho ya OFF ho, toh IMDb try karein
-        if not details or details.get("error"):
-            logger.info("Switching to IMDb for details...")
-            try:
-                details = await get_movie_details(base_name)
-            except Exception as e:
-                logger.error(f"IMDb Error: {e}")
-                details = {}
-
-        if not details:
-            details = {}
+            details = await get_movie_detailsx(base_name)
+            if details.get("error"):
+                error_tmdb=True
+                logger.info("TMDB error switching to IMDB")
+                details = await get_movie_details(base_name) or {}
+        else:
+            details = await get_movie_details(base_name) or {}
 
         raw_genres = details.get("genres", "N/A")
-        # --- REPLACE KHATAM ---
-        # ... baaki code waise hi rehne dein
+        if isinstance(raw_genres, str):
+            genre_list = [g.strip() for g in raw_genres.split(",")]
+            genres = ", ".join(g for g in genre_list if g in STANDARD_GENRES) or "N/A"
+        else:
             genres = ", ".join(g for g in raw_genres if g in STANDARD_GENRES) or "N/A"
         movie_doc = {
             "_id": base_name,
