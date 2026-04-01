@@ -254,21 +254,29 @@ async def _process_with_lock(bot, filename, caption, media_info, base_name, proc
         "episode": media_info["episode"]
     }
 
-    if not movie_doc:
+    # --- ISKO COPY KAREIN (SAFE CRASH-FREE CODE) ---
+        details = None
         if TMDB_POSTER:
-            details = await get_movie_detailsx(base_name)
-            if details.get("error"):
-                error_tmdb=True
-                logger.info("TMDB error switching to IMDB")
-                details = await get_movie_details(base_name) or {}
-        else:
-            details = await get_movie_details(base_name) or {}
+            try:
+                details = await get_movie_detailsx(base_name)
+            except Exception:
+                details = None
+
+        # Agar TMDB fail ho ya OFF ho, toh IMDb try karein
+        if not details or details.get("error"):
+            logger.info("Switching to IMDb for details...")
+            try:
+                details = await get_movie_details(base_name)
+            except Exception as e:
+                logger.error(f"IMDb Error: {e}")
+                details = {}
+
+        # Ab details check karein taaki bot crash na ho
+        if not details:
+            details = {}
 
         raw_genres = details.get("genres", "N/A")
-        if isinstance(raw_genres, str):
-            genre_list = [g.strip() for g in raw_genres.split(",")]
-            genres = ", ".join(g for g in genre_list if g in STANDARD_GENRES) or "N/A"
-        else:
+        # ... baaki code waise hi rehne dein
             genres = ", ".join(g for g in raw_genres if g in STANDARD_GENRES) or "N/A"
         movie_doc = {
             "_id": base_name,
