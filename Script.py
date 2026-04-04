@@ -247,14 +247,22 @@ Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
 """
 
 
-    IMDB_TEMPLATE_TXT = """<b><a href={url}>{title} (<a href={url}/releaseinfo>{year}</a>)
+    IMDB_TEMPLATE_TXT = """
+⌬ <b>{title}</b> ─ ⬢ <code>{year}</code>
 
-ʀᴀᴛɪɴɢ : <a href={url}/ratings>{rating}</a>
-ɢᴇɴʀᴇ : {genres}
-ᴀᴜᴅɪᴏ : {languages}
+<b>┌── ꜱʏꜱᴛᴇᴍ ɪɴꜰᴏ ────┈</b>
+<b>┆ ❯ ꜱᴄᴏʀᴇ  :</b> <code>⭐ {rating}/10</code>
+<b>┆ ❯ ᴛɪᴍᴇ   :</b> <code>🕒 {runtime}</code>
+<b>┆ ❯ ɢᴇɴʀᴇ  :</b> <code>{genres}</code>
+<b>┆ ❯ ᴀᴜᴅɪᴏ  :</b> <code>{languages}</code>
+<b>┆ ❯ ᴄᴀꜱᴛ   :</b> <i>{cast}</i>
+<b>└───────────────┈</b>
 
-sʜᴏᴡɴ ɪɴ : {remaining_seconds} <i>sᴇᴄ</i>⚡️
-<b>ʀᴇǫ ʙʏ : {message.from_user.mention}</b>"""
+<b>📡 ꜱʏɴᴏᴘꜱɪꜱ:</b> <i>{plot}</i>
+
+<b>👤 ʀᴇQᴜᴇꜱᴛᴇᴅ ʙʏ:</b> {message.from_user.mention}
+<b>⚙️ ꜰʟɪxᴏʀᴀ_ɴᴇᴛᴡᴏʀᴋ_ᴠ.𝟷.𝟶</b>
+"""
 
     LOGO = r"""
    ___ _   _                      
