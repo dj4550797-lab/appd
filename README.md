@@ -1,4 +1,4 @@
-## 🔔 New Version Released – V1.4 (Change this to ## 🎬 Welcome to Flixora)
+## 🔔 New Version Released – V1.4 ( 🎬 Welcome to Flixora)
 
 - ✅ Spell Check Toggle (Group Only)
 - ✅ Group Owners Can Manage Settings via Bot PM
