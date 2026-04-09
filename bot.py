@@ -38,7 +38,7 @@ ppath = "plugins/*.py"
 files = glob.glob(ppath)
 
 async def dreamxbotz_start():
-    print('\n\nInitalizing DreamxBotz')
+    print('\n\nInitalizing Flixora')
     await dreamxbotz.start()
     bot_info = await dreamxbotz.get_me()
     dreamxbotz.username = bot_info.username
@@ -53,7 +53,7 @@ async def dreamxbotz_start():
             load = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(load)
             sys.modules["plugins." + plugin_name] = load
-            print("DreamxBotz Imported => " + plugin_name)
+            print("Flixora Imported => " + plugin_name)
     if ON_HEROKU:
         asyncio.create_task(ping_server()) 
     b_users, b_chats = await db.get_banned()
