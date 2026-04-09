@@ -17,7 +17,7 @@ def is_enabled(value, default):
 # ============================
 # Bot Information Configuration
 # ============================
-SESSION = environ.get('SESSION', 'royal_search')   # Session name for the bot
+SESSION = environ.get('SESSION', 'Flixora_search')   # Session name for the bot
 API_ID = int(environ.get('API_ID', '')) # API ID from my.telegram.org
 API_HASH = environ.get('API_HASH', '')  # API Hash from my.telegram.org
 BOT_TOKEN = environ.get('BOT_TOKEN', "")    # Bot token from @BotFather
@@ -100,7 +100,7 @@ LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-100')) #Verification Channe
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-100')) #If Anyone Set Your Bot In Any Group And Set Shortner In That Group Then In This Channel The All Details Come
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://telegra.ph/file/9ecc5d6e4df5b83424896.jpg")
 
-TUTORIAL = environ.get("TUTORIAL", "https://t.me/flixtutorial")   # Tutorial link for verification
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/flixoar")   # Tutorial link for verification
 TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/flixtutorial")   # Second tutorial link for verification
 TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/flixtutorial")   # Third tutorial link for verification
 
@@ -120,7 +120,7 @@ THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "54000"))
 # ============================
 # Channel & Group Links Configuration
 # ============================
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/flixoraoffiacial') # Group link for the bot
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/flixoraoffiacial1') # Group link for the bot
 OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/Amarhacker') # Owner link for the bot
 UPDATE_CHNL_LNK = environ.get('UPDATE_CHNL_LNK', 'https://t.me/flixoraoffiacial') # Update channel link for the bot
 
