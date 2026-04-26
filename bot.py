@@ -16,9 +16,9 @@ from info import *
 from utils import temp
 from Script import script
 from plugins import web_server, check_expired_premium, keep_alive
-from dreamxbotz.Bot import dreamxbotz
-from dreamxbotz.util.keepalive import ping_server
-from dreamxbotz.Bot.clients import initialize_clients
+from Flixora.Bot import Flixora
+from Flixora.util.keepalive import ping_server
+from Flixora.Bot.clients import initialize_clients
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = 500_000_000
 
@@ -37,11 +37,11 @@ botStartTime = time.time()
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
 
-async def dreamxbotz_start():
+async def Flixora_start():
     print('\n\nInitalizing Flixora')
-    await dreamxbotz.start()
-    bot_info = await dreamxbotz.get_me()
-    dreamxbotz.username = bot_info.username
+    await Flixora.start()
+    bot_info = await Flixora.get_me()
+    Flixora.username = bot_info.username
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -65,13 +65,13 @@ async def dreamxbotz_start():
         print("Multiple Database Mode On. Now Files Will Be Save In Second DB If First DB Is Full")
     else:
         print("Single DB Mode On ! Files Will Be Save In First Database")
-    me = await dreamxbotz.get_me()
+    me = await Flixora.get_me()
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
     temp.B_LINK = me.mention
-    dreamxbotz.username = '@' + me.username
-    dreamxbotz.loop.create_task(check_expired_premium(dreamxbotz))
+    Flixora.username = '@' + me.username
+    Flixora.loop.create_task(check_expired_premium(Flixora))
     logging.info(f"{me.first_name} with Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
     logging.info(LOG_STR)
     logging.info(script.LOGO)
@@ -79,19 +79,19 @@ async def dreamxbotz_start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    await dreamxbotz.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(temp.B_LINK, today, time))
+    await Flixora.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(temp.B_LINK, today, time))
     app = web.AppRunner(await web_server())
     await app.setup()
     bind_address = "0.0.0.0"
     await web.TCPSite(app, bind_address, PORT).start()
-    dreamxbotz.loop.create_task(keep_alive())
+    Flixora.loop.create_task(keep_alive())
     await idle()
     
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     while True:
         try:
-            loop.run_until_complete(dreamxbotz_start())
+            loop.run_until_complete(Flixora_start())
             break  
         except FloodWait as e:
             print(f"FloodWait! Sleeping for {e.value} seconds.")

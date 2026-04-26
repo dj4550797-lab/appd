@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/DreamXBotz/Auto_Filter_B",
-    "repository": "https://github.com/DreamXBotz/Auto_Filter_B",
+    "website": "https://github.com/Flixora/Auto_Filter_B",
+    "repository": "https://github.com/Flixora/Auto_Filter_B",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
