@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flixora | Download {{file_name}}</title>
+    <title>Flixora | {{file_name}}</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
         body {
-            background: radial-gradient(circle at 50% 100%, #1e1b4b 0%, var(--dark-bg) 100%);
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--dark-bg) 100%);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
@@ -95,9 +95,9 @@
         
         .player-wrapper { border-radius: 24px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--glass-border); }
         
-        .file-info { margin-bottom: 2rem; text-align: center; }
+        .file-info { margin-bottom: 2rem; }
         .file-info h4 { color: var(--primary); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
-        .file-name { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #fff; }
+        .file-name { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; }
 
         .downloadBtn { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
         .downloadBtn button {
@@ -128,7 +128,7 @@
         .links button:hover { transform: scale(1.05); filter: brightness(1.1); }
 
         /* Footer Extra */
-        .movie-cont { margin-top: 4rem; padding: 2rem; background: var(--dark-card); border-radius: 24px; border: 1px solid var(--glass-border); text-align: center; }
+        .movie-cont { margin-top: 4rem; padding: 2rem; background: var(--dark-card); border-radius: 24px; border: 1px solid var(--glass-border); }
         .ranMovBtn { padding: 1rem 2.5rem; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; color: #fff; font-weight: 800; cursor: pointer; margin-top: 2rem; }
 
         footer { text-align: center; padding: 6rem 2rem; color: var(--text-dim); }
@@ -138,7 +138,6 @@
             nav { padding: 1rem 1.5rem; }
             .nryt { display: none; }
             .abt-sec h1 { font-size: 1.8rem; }
-            .file-name { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -173,7 +172,7 @@
             </div>
             
             <div class="file-info">
-                <h4>READY TO DOWNLOAD</h4>
+                <h4>FILE NAME</h4>
                 <div class="file-name">{{file_name}}</div>
             </div>
 
@@ -184,27 +183,26 @@
                 <button onclick="km_player()"><img src="https://i.postimg.cc/wT9tFQ9Z/km.png">KM PLAYER</button>
                 <button onclick="s_player()"><img src="https://i.postimg.cc/XYJr6NGg/s.png">S PLAYER</button>
                 <button onclick="hd_player()"><img src="https://i.postimg.cc/rFT43LNh/hd.png">HD PLAYER</button>
-                <button onclick="window.open('{{file_url}}')" style="background: var(--primary); color: #000;"><i class="fas fa-download"></i> DOWNLOAD VIDEO</button>
+                <button onclick="window.open('{{file_url}}')" style="background: var(--primary); color: #000;"><i class="fas fa-download"></i> DOWNLOAD</button>
             </div>
         </div>
 
         <div class="abt">
             <div class="abt-sec" id="sec1">
-                <h1>WELCOME TO <span>STREAMING</span> PAGE</h1>
+                <h1>WELCOME TO <span>FLIXORA</span></h1>
                 <p>We're thrilled to have you here. Get ready for an amazing experience filled with entertainment, fun, and surprises. Grab your snacks, sit back, and enjoy the show!</p>
             </div>
             
             <div class="abt-sec" id="sec2">
-                <h1>OUR ALL <span>CHANNELS</span></h1>
+                <h1>OUR <span>CHANNELS</span></h1>
                 <div class="links">
                     <button onclick="window.open('https://t.me/Flixora')">Update Channel</button>
-                    <button onclick="window.open('https://t.me/Flixora')">Movie Request Group</button>
-                    <button onclick="window.open('https://youtube.com/')">YouTube Channel</button>
+                    <button onclick="window.open('https://t.me/Flixora')">Request Group</button>
                 </div>
             </div>
 
             <div class="abt-sec" id="sec3">
-                <h1>OUR ALL <span>BOTS</span></h1>
+                <h1>OUR <span>BOTS</span></h1>
                 <div class="links">
                     <button onclick="window.open('https://t.me/Flixora')">Chat GPT Bot</button>
                     <button onclick="window.open('https://t.me/Flixora')">Reaction Bot</button>
@@ -215,7 +213,7 @@
                 <h1>LET'S <span>TALK</span></h1>
                 <p>We can talk for your support and you can report through Telegram.</p>
                 <div class="links">
-                    <button onclick="window.open('https://t.me/Contact_Flixora_bot')">Contact Support</button>
+                    <button onclick="window.open('https://t.me/Contact_Flixora_bot')">Contact Us</button>
                 </div>
             </div>
         </div>
@@ -223,8 +221,8 @@
         <div class="footer-extra">
             <center>
                 <div class="movie-cont">
-                    <h3>Looking for suggestions?</h3>
-                    <button class="ranMovBtn" onclick="window.open('https://t.me/Flixora')">Get More Movies Suggestion</button>
+                    <h3>Looking for more?</h3>
+                    <button class="ranMovBtn" onclick="window.open('https://t.me/Flixora')">Get More Suggestions</button>
                 </div>
             </center>
         </div>
@@ -233,7 +231,7 @@
     <footer>
         <div class="copyright">
             <p>Copyright &copy; 2026 <a href="https://t.me/Flixora">Flixora</a>. All Rights Reserved.</p>
-            <p style="margin-top: 1rem; opacity: 0.6; font-size: 0.8rem;">This page is made by Flixora Team.</p>
+            <p style="margin-top: 1rem; opacity: 0.6;">This page is made with love by Flixora Team.</p>
         </div>
     </footer>
 
@@ -241,39 +239,35 @@
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
 
     <script>
-        const video = document.getElementById('player');
-        
         document.addEventListener('DOMContentLoaded', () => {
-            new Plyr('#player');
+            initializePlayer();
             initParticles();
             initCursor();
         });
 
-        // Function to handle rotation
-        async function handleRotation() {
-            try {
-                if (document.fullscreenElement) {
-                    if (screen.orientation && screen.orientation.lock) {
-                        await screen.orientation.lock('landscape');
-                    }
-                } else {
-                    if (screen.orientation && screen.orientation.unlock) {
-                        screen.orientation.unlock();
-                    }
+        function initializePlayer() {
+            const player = new Plyr('#player', {
+                controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'mute', 'volume', 'settings', 'captions', 'pip', 'airplay', 'fullscreen']
+            });
+
+            player.on('enterfullscreen', () => {
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('landscape').catch(err => console.log(err));
                 }
-            } catch (error) {
-                console.log("Orientation lock failed: ", error);
-            }
+            });
+
+            player.on('exitfullscreen', () => {
+                if (screen.orientation && screen.orientation.unlock) {
+                    screen.orientation.unlock();
+                }
+            });
+
+            player.on('play', () => {
+                if (window.innerWidth < 768) {
+                    player.fullscreen.enter();
+                }
+            });
         }
-
-        document.addEventListener('fullscreenchange', handleRotation);
-
-        video.addEventListener('play', () => {
-            if (window.innerWidth < 768) {
-                if (video.requestFullscreen) video.requestFullscreen();
-                else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-            }
-        });
 
         function initParticles() {
             const canvas = document.getElementById('particle-canvas');
