@@ -2,7 +2,7 @@
 
 import jinja2
 from info import *
-from Flixora.Bot import Flixora
+from Flixora.bot import Flixora
 from Flixora.util.human_readable import humanbytes
 from Flixora.util.file_properties import get_file_ids
 from Flixora.server.exceptions import InvalidHash
