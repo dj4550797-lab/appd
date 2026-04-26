@@ -207,7 +207,7 @@ async def premium_button(client, callback_query: CallbackQuery):
                     chat_id=callback_query.message.chat.id,
                     title="Premium Subscription",
                     description=f"Pay {amount} Star And Get Premium For {STAR_PREMIUM_PLANS[amount]}",
-                    payload=f"dreamxpremium_{amount}",
+                    payload=f"Flixorapremium_{amount}",
                     currency="XTR",
                     prices=[
                         LabeledPrice(
@@ -229,7 +229,7 @@ async def premium_button(client, callback_query: CallbackQuery):
 @Client.on_pre_checkout_query()
 async def pre_checkout_handler(client, query: PreCheckoutQuery):
     try:
-        if query.payload.startswith("dreamxpremium_"):
+        if query.payload.startswith("Flixorapremium_"):
             await query.answer(success=True)
         else:
             await query.answer(success=False, error_message="⚠️ Invalid Purchase Type.", show_alert=True)

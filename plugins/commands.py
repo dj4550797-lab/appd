@@ -332,10 +332,10 @@ async def start(client, message):
                 size = get_size(files1.file_size)
                 f_caption = files1.caption
                 settings = await get_settings(int(grp_id))
-                DREAMX_CAPTION = settings.get('caption', CUSTOM_FILE_CAPTION)
-                if DREAMX_CAPTION:
+                FLIXORA_CAPTION = settings.get('caption', CUSTOM_FILE_CAPTION)
+                if FLIXORA_CAPTION:
                     try:
-                        f_caption=DREAMX_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                        f_caption=FLIXORA_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
                     except Exception as e:
                         logger.exception(e)
                         f_caption = f_caption
@@ -418,10 +418,10 @@ async def start(client, message):
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             settings = await get_settings(int(grp_id))
-            DREAMX_CAPTION = settings.get('caption', CUSTOM_FILE_CAPTION)
-            if DREAMX_CAPTION:
+            FLIXORA_CAPTION = settings.get('caption', CUSTOM_FILE_CAPTION)
+            if FLIXORA_CAPTION:
                 try:
-                    f_caption=DREAMX_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
+                    f_caption=FLIXORA_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
                     return
             await msg.edit_caption(
@@ -445,10 +445,10 @@ async def start(client, message):
     size = get_size(files.file_size)
     f_caption = files.caption
     settings = await get_settings(int(grp_id))            
-    DREAMX_CAPTION = settings.get('caption', CUSTOM_FILE_CAPTION)
-    if DREAMX_CAPTION:
+    FLIXORA_CAPTION = settings.get('caption', CUSTOM_FILE_CAPTION)
+    if FLIXORA_CAPTION:
         try:
-            f_caption=DREAMX_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption=FLIXORA_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
             f_caption = f_caption
@@ -493,7 +493,7 @@ async def start(client, message):
 async def log_file(bot, message):
     """Send log file"""
     try:
-        await message.reply_document('DreamXlogs.txt', caption="📑 **ʟᴏɢꜱ**")
+        await message.reply_document('Flixoralogs.txt', caption="📑 **ʟᴏɢꜱ**")
     except Exception as e:
         await message.reply(str(e))
 
@@ -1063,7 +1063,7 @@ async def set_tutorial(client, message: Message):
     except IndexError:
         return await message.reply_text(
             f"<b>ᴄᴏᴍᴍᴀɴᴅ ɪɴᴄᴏᴍᴘʟᴇᴛᴇ !!\n\nᴜꜱᴇ ʟɪᴋᴇ ᴛʜɪꜱ -</b>\n\n"
-            f"<code>/{message.command[0]} https://t.me/dreamxbotz</code>"
+            f"<code>/{message.command[0]} https://t.me/flixoraoffiacial</code>"
         )
     if message.command[0] == "set_tutorial":
         tutorial_key = "tutorial"
@@ -1350,7 +1350,7 @@ async def set_fsub(client, message):
 @Client.on_message(filters.private & filters.command("resetallgroup") & filters.user(ADMINS))
 async def reset_all_settings(client, message):
     try:
-        reset_count = await db.dreamx_reset_settings()
+        reset_count = await db.Flixora_reset_settings()
         await message.reply_text(
             f"<b>ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ꜱᴇᴛᴛɪɴɢꜱ ꜰᴏʀ  <code>{reset_count}</code> ɢʀᴏᴜᴘꜱ. ᴅᴇꜰᴀᴜʟᴛ ᴠᴀʟᴜᴇꜱ ᴡɪʟʟ ʙᴇ ᴜꜱᴇᴅ ✅</b>",
             quote=True
