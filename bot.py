@@ -16,7 +16,7 @@ from info import *
 from utils import temp
 from Script import script
 from plugins import web_server, check_expired_premium, keep_alive
-from Flixora.Bot import Flixora
+from Flixora.bot import Flixora
 from Flixora.util.keepalive import ping_server
 from Flixora.Bot.clients import initialize_clients
 from PIL import Image
