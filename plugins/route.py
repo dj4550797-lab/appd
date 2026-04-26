@@ -6,7 +6,7 @@ import secrets
 import time
 import mimetypes
 from aiohttp.http_exceptions import BadStatusLine
-from Flixora.Bot import multi_clients, work_loads, Flixora
+from Flixora.bot import multi_clients, work_loads, Flixora
 from Flixora.server.exceptions import FIleNotFound, InvalidHash
 from Flixora.zzint import StartTime, __version__
 from Flixora.util.custom_dl import ByteStreamer
