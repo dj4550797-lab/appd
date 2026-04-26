@@ -1,5 +1,5 @@
 import os
-from plugins.Dreamxfutures.fotnt_string import Fonts
+from plugins.Flixorafutures.fotnt_string import Fonts
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
