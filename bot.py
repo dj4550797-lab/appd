@@ -18,7 +18,7 @@ from Script import script
 from plugins import web_server, check_expired_premium, keep_alive
 from Flixora.bot import Flixora
 from Flixora.util.keepalive import ping_server
-from Flixora.Bot.clients import initialize_clients
+from Flixora.bot.clients import initialize_clients
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = 500_000_000
 
